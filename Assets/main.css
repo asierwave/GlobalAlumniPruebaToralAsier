@@ -1,8 +1,10 @@
+/* Importar tipos, podría mandarlas a un fonts.css a parte */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
-  /*  */
+  /*General */
 
 body {
     display: flex;
@@ -23,7 +25,7 @@ main {
 
 }
 
-/* TYPO */
+ /* Typos, que también podría mandarlas a un css aparte */
 
 h2 {
     display: flex;
@@ -55,31 +57,9 @@ b {
     font-size: 0.8rem;
 }
 
-/* SECCIÓN RETO */
 
-.retosection {
-    display: flex;
-    flex-direction: row;
-    background-color: #000C3D;
-    width: auto;
-    height: 40vh;
-    max-width: 100%;
-    padding: 140px 8vw 80px 8vw;
-    align-items: flex-start;
+/* Cabecera título de sección reto */
 
-
-}
-
-
-
-.retotextual {
-    display: flex;
-    width: auto;
-    max-width: 30%;
-
-
-  
-}
 
 .retotitle {
     display: flex;
@@ -98,11 +78,31 @@ b {
     font-size: 1.4rem;
 }
 
+/* Sección reto */
+
+.retosection {
+    display: flex;
+    flex-direction: row;
+    background-color: #000C3D;
+    width: auto;
+    height: 40vh;
+    max-width: 100%;
+    padding: 140px 8vw 80px 8vw;
+    align-items: flex-start;
 
 
+}
 
 
-/* CARRUSEL */
+.retotextual {
+    display: flex;
+    width: auto;
+    max-width: 30%;
+
+}
+
+
+/* Carrousel sección reto */
 
 
 .carousel-container {
@@ -182,8 +182,6 @@ b {
 }
 
 
-
-  /* Responsive Design */
   @media screen and (max-width: 1024px) {
     .retosection {
         flex-direction: column;

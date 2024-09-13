@@ -1,83 +1,85 @@
 const retocards = document.querySelector('.retocards');
 const retocardsArray = document.querySelectorAll('.retocard');
 let counter = 0;
-let intervalTime = 6000; // Intervalo de tiempo en milisegundos (6 segundos)
+let intervalTime = 6000; 
 let autoSlide;
 
 // Función para actualizar la posición del carrusel
 function updateCarousel() {
-  const cardWidth = retocardsArray[0].clientWidth; // Ancho de una tarjeta
+    const cardWidth = retocardsArray[0].clientWidth; // Ancho de una tarjeta
   retocards.style.transform = `translateX(${-counter * cardWidth}px)`; // Mover el carrusel
 }
 
-// Función para determinar cuántas tarjetas saltar según el ancho de la pantalla
+// Función para determinar cuántas tarjetas saltar según el ancho de la pantalla, 3 en desktop, 2 en tablet y 1 en mobile
 function getCardsToSkip() {
   if (innerWidth > 1250) {
-    return 3; // Saltar 3 tarjetas
+    return 3; 
   } else if (innerWidth > 800 && innerWidth <= 1250) {
-    return 2; // Saltar 2 tarjetas
+    return 2; 
   } else {
-    return 1; // Saltar 1 tarjeta
+    return 1;
   }
 }
 
-// Función para avanzar automáticamente
+// Para que las cards se muevan automáticamente
 function autoNextSlide() {
   const cardsToSkip = getCardsToSkip();
-  counter = (counter + cardsToSkip) % retocardsArray.length; // Avanzar tarjetas
+  counter = (counter + cardsToSkip) % retocardsArray.length; 
   updateCarousel();
 }
 
-// Iniciar el desplazamiento automático
+
 function startAutoSlide() {
   autoSlide = setInterval(autoNextSlide, intervalTime);
 }
 
-// Detener el desplazamiento automático
+// Para detener y reanudar el movimiento automático cuando se usen los botones y después de usarlos
 function stopAutoSlide() {
   clearInterval(autoSlide);
 }
 
-// Función para reiniciar la rotación automática tras interacción del usuario
 function resetAutoSlide() {
   stopAutoSlide();
   startAutoSlide();
 }
-// Función para saltar las cards hacia adelante o atrás
+
+
+// Funcionamiento de los botones laterales
 function jumpCards(numCards) {
     const cardsToSkip = getCardsToSkip();
+    
     const totalCards = retocardsArray.length;
   
     // Si estamos en la primera posición y retrocedemos, vamos al final
     if (counter === 0 && numCards < 0) {
       counter = Math.floor((totalCards - 1) / cardsToSkip) * cardsToSkip;
     } else {
-      counter = (counter + numCards + totalCards) % totalCards;  // Garantiza que el índice no sea negativo
+      counter = (counter + numCards + totalCards) % totalCards;  
     }
     
     updateCarousel();
 }
 
-// Evento de clic en el botón "Next"
+// Funcionamiento botón adelante
 document.querySelector('.next').addEventListener('click', () => {
-  stopAutoSlide();  // Detener la rotación automática al usar botones manualmente
+  stopAutoSlide();  // Llama a la función para detener el movimiento automático de cards
   const cardsToSkip = getCardsToSkip();
-  jumpCards(cardsToSkip); // Avanzar según el ancho de la pantalla
+  jumpCards(cardsToSkip); 
 });
 
 
-// Evento de clic en el botón "Prev"
+// Funcionamiento botón hacia atrás
 document.querySelector('.prev').addEventListener('click', () => {
-    stopAutoSlide();  // Detener la rotación automática al usar botones manualmente
+    stopAutoSlide();  
     const cardsToSkip = getCardsToSkip();
-    jumpCards(-cardsToSkip);  // Retroceder según el ancho de la pantalla
-    startAutoSlide();  // Reiniciar la rotación automática después de la interacción
+    jumpCards(-cardsToSkip);  // Llama función para saltar cards según el tamaño de pantalla (3,2,1)
+    startAutoSlide();  // Llama a la función para reiniciaar el movimiento automático de cards
   });
 
-// Cuando la ventana cambia de tamaño, actualiza la posición del carrusel
+// Cuando la ventana cambia de tamaño, actualiza la posición del carrusel de acuerdo a ese tamaño
 window.addEventListener('resize', () => {
   updateCarousel();
 });
 
-// Iniciar el carrusel automáticamente
+//Llamar a la función de movimiento automático
 startAutoSlide();
