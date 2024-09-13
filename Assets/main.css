@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+  /*  */
+
+body {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    width: 100vw;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100vh;
+    justify-content: flex-end;
+
+
+}
+
+/* TYPO */
+
+h2 {
+    display: flex;
+    white-space: wrap;
+    font-size: 1rem;
+    width: 100%;
+    min-width: 100%;
+    font-family: "Playfair Display", serif;
+    font-weight: 100;
+}
+
+p {
+    display: inline;
+    width: auto;
+    color: #FFFFFF;
+    font-family: "Roboto", sans-serif;
+    font-weight: 200;
+    margin: 0;
+
+}
+
+b {
+    display: inline;
+}
+
+.retotextual p {
+    width: 100%;
+    padding: 0 6rem 0 0;
+    font-size: 0.8rem;
+}
+
+/* SECCIÓN RETO */
+
+.retosection {
+    display: flex;
+    flex-direction: row;
+    background-color: #000C3D;
+    width: auto;
+    height: 40vh;
+    max-width: 100%;
+    padding: 140px 8vw 80px 8vw;
+    align-items: flex-start;
+
+
+}
+
+
+
+.retotextual {
+    display: flex;
+    width: auto;
+    max-width: 30%;
+
+
+  
+}
+
+.retotitle {
+    display: flex;
+    position: relative;
+    padding: 16px;
+    left: 14vw;
+    bottom: 0;
+    margin-bottom: -80px;
+    width: 160px;
+    height: 160px;
+    background-color: #00AE88;
+    color: #FFFFFF;
+}
+
+.retotitle h2 {
+    font-size: 1.4rem;
+}
+
+
+
+
+
+/* CARRUSEL */
+
+
+.carousel-container {
+    position: relative;
+    width: auto;
+    max-width: 70%;
+    height: fit-content;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .carousel-wrapper {
+    overflow: visible;
+    width: 100%;
+    
+  }
+  
+  .retocards {
+    display: flex;
+    gap: 1vw;
+    padding-left: 60px;
+    justify-content: space-between;
+    transition: transform 0.5s ease-in-out;
+    
+  }
+  
+  .retocard {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 16px;
+    min-width: calc(29%); /* For desktop, 3 cards */
+    box-sizing: border-box;
+    text-align: flex-start;
+    height: fit-content;
+    min-height: 300px;
+    border-radius: 20px;
+  }
+  
+  button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    background-color: #000c3d;
+    border: none;
+    padding: 0 12px;
+    cursor: pointer;
+    font-size: 48px;
+    z-index: 99999;
+    transition: 1s font-size cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  button.prev {
+    left:0;
+    
+  }
+  
+  button.next {
+    right: 0;
+  }
+  
+  button.prev:hover, button.next:hover {
+    font-size: 64px;
+  }
+  
+
+.retocard p {
+    display: flex;
+    width: 100%;
+    font-size: 0.8rem;
+    color: #000C3D;
+    border-top: solid 1px #000c3d47;
+    padding-top: 16px;
+}
+
+
+
+  /* Responsive Design */
+  @media screen and (max-width: 1024px) {
+    .retosection {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 60px;
+        overflow: hidden;
+        height: fit-content;
+
+    }
+
+    .retotextual {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .retotextual p {
+        display: inline;
+        max-width: 100%;
+        padding: 0;
+    }
+
+
+    .carousel-container {
+        overflow: visible;
+        max-width: 100%;
+    }
+
+
+
+    .retocard {
+      min-width: calc(42%); 
+      min-height: 200px;
+      padding-bottom: 100px;
+
+
+    }
+  }
+
+
+@media screen and (max-width: 800px) {
+    
+    .carousel-container {
+        overflow: visible;
+        max-width: 100%;
+    }
+
+    .retocard {
+        min-width: calc(100% - 80px); 
+      }
+
+    .retotextual {
+        display: flex;
+        width: auto;
+        max-width: 100%;
+    }
+
+  }
+  
